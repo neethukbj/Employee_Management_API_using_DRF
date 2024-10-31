@@ -140,21 +140,23 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 #     'PAGE_SIZE': 10, 
 # }
 
-# SIMPLE_JWT = {
-#     'ACCESS_TOKEN_LIFETIME': timedelta(minutes=5),  # Adjust token lifetime as needed
-#     'REFRESH_TOKEN_LIFETIME': timedelta(days=1),
-#     'ROTATE_REFRESH_TOKENS': True,
-#     'BLACKLIST_AFTER_ROTATION': True,
-#     'ALGORITHM': 'HS256',  # Algorithm used for encoding tokens
-#     'SIGNING_KEY': SECRET_KEY,  # Use the same SECRET_KEY as your Django project
-# }
+SIMPLE_JWT = {
+    'ACCESS_TOKEN_LIFETIME': timedelta(minutes=20),  # Adjust token lifetime as needed
+    'REFRESH_TOKEN_LIFETIME': timedelta(days=1),
+    'ROTATE_REFRESH_TOKENS': True,
+    'BLACKLIST_AFTER_ROTATION': True,
+    'ALGORITHM': 'HS256',  # Algorithm used for encoding tokens
+    'SIGNING_KEY': SECRET_KEY,  # Use the same SECRET_KEY as your Django project
+}
 REST_FRAMEWORK = {
 
     'DEFAULT_AUTHENTICATION_CLASSES': (
 
         'rest_framework_simplejwt.authentication.JWTAuthentication',
          
-    )
+    ),
+    'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
+    'PAGE_SIZE': 10, 
     
 }
 
