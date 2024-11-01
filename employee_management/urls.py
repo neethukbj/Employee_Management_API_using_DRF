@@ -22,9 +22,9 @@ from drf_yasg import openapi
 
 schema_view=get_schema_view( openapi.Info(
 
-    title="Student Management",
+    title="Employee Management",
     default_version="v1",
-    description="api documentation for todo application ",
+    description="api documentation for employee management",
     terms_of_service="https://www.google.com/policies/terms/",
     contact=openapi.Contact(email="contact@todoapp.local"),
     license=openapi.License(name="BSD License"),
@@ -38,7 +38,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path("api/auth/", include("authusers.urls")),
     path("api/", include("employees.urls")),
-
     path("swagger/",schema_view.with_ui("swagger",cache_timeout=0),name="schema_swagger_ui"),
     path("redoc/",schema_view.with_ui("redoc",cache_timeout=0),name="schema_redoc"),
 ]

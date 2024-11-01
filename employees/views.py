@@ -6,7 +6,6 @@ from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
 from rest_framework import status
 
-
 class EmployeeListCreateView(generics.ListCreateAPIView):
     queryset = Employee.objects.all()
     serializer_class = EmployeeSerializer
@@ -37,7 +36,6 @@ class EmployeeRetrieveUpdateDeleteView(generics.RetrieveUpdateDestroyAPIView):
     serializer_class = EmployeeSerializer
     permission_classes = [IsAuthenticated]
 
-     # Custom delete response to confirm deletion
     def delete(self, request, *args, **kwargs):
         response = super().delete(request, *args, **kwargs)
         if response.status_code == 204:
